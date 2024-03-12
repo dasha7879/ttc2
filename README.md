@@ -128,6 +128,10 @@ We recommend using [blueprint framework](https://docs.ton.org/develop/smart-cont
 - [Watch Video Tutorials](https://www.youtube.com/watch?v=SDUlVUYWo1I&t=0s)
 - Use official Tact [documentation](https://docs.tact-lang.org/).
 
+#### Online IDE to get started without additional setups
+
+https://ide.nujan.io/
+
 #### Tact syntax highlight
 For a more streamlined coding experience, consider using [IDE plugins](https://docs.ton.org/develop/smart-contracts/environment/ide-plugins) for syntax highlighting.
 

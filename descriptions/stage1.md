@@ -40,3 +40,6 @@ The following fields must be initialized in the contract's storage upon deployme
 - Usefull video tutorial for this task
   - In English [**link**](https://www.youtube.com/watch?v=MYSQMq-NaVM&t=0s)
   - In Russian [**link**](https://youtu.be/bQqp8BFhEX4?si=cRBuUbrQKzj0faoZ)
+-  Online [IDE](https://ide.nujan.io/) to get started without additional setups
+
+
