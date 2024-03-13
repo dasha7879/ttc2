@@ -133,7 +133,12 @@ We recommend using [blueprint framework](https://docs.ton.org/develop/smart-cont
 https://ide.nujan.io/
 
 #### Tact syntax highlight
-For a more streamlined coding experience, consider using [IDE plugins](https://docs.ton.org/develop/smart-contracts/environment/ide-plugins) for syntax highlighting.
+
+For a more streamlined coding experience, consider using Tact-specific IDE or editor plugins for syntax highlighting and typechecking.
+
+- The official VS Code [extension for Tact](https://marketplace.visualstudio.com/items?itemName=KonVik.tact-lang-vscode)
+- JetBrains IDEs [TON plugin](https://plugins.jetbrains.com/plugin/23382-ton) provides Tact support
+- Vim/NeoVim [plugin for Tact](https://github.com/tact-lang/tact.vim)
 
 
 
