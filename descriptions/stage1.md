@@ -8,29 +8,31 @@ The goal for participants is to develop a contract that signifies a user's profi
 ### Contract Storage Structure
 The following fields must be initialized in the contract's storage upon deployment:
 
-- `master_address`: The address of the master contract.
-- `user_address`: The user's address.
+- `initialized`: A boolean value to confirm the user contract's initialization.
+- `masterAddress`: The address of the master contract.
+- `userAddress`: The user's address.
 - `name`: The user's name.
-- `avatar_url`: The URL of the user's avatar.
-- `short_description`: A brief profile description.
+- `avatarUrl`: The URL of the user's avatar.
+- `shortDescription`: A brief profile description.
 - `age`: The user's age.
-- `post_index = 0`: The index of the user's last post, to be initialized as zero.
+- `postIndex = 0`: The index of the user's last post, to be initialized as zero.
 
 ### Contract Functionality
 
 #### Deployment
-- At the time of contract deployment, `name`, `avatar_url`, `short_description`, and `age` should be set through the first incoming message.
-- The `post_index` is to be set to zero, serving the purpose of tracking the index of the latest post by the user.
+- At the time of contract deployment, `initialized`, `name`, `avatarUrl`, `shortDescription`, and `age` should be set through the first incoming message. In the constructor they should be set to initial zero values (an empty string for strings, 0 for numbers and false for booleans).
+- Only the `masterAddress` and `userAddress` should be set through the constructor, so the calculation of user contract address will depend on these two fields.
+- The `postIndex` is to be set to zero, serving the purpose of tracking the index of the latest post by the user.
 
 #### Profile Updates
-- Users should have the capability to update their `avatar_url` and `short_description` via specific functions in the contract.
-- It should be ensured that only the user whose address is specified in `user_address` can make updates to these fields.
+- Users should have the capability to update their `avatarUrl` and `shortDescription` via specific functions in the contract.
+- It should be ensured that only the user whose address is specified in `userAddress` can make updates to these fields.
 
 #### Fetching User Data
-- Implement a getter function `getUserData` that provides access to the user's data: `user_address`, `name`, `avatar_url`, `short_description`, `age`, `post_index`.
+- Implement a getter function `userData` that provides access to the user's data: `initializaed`, `masterAddress`, `userAddress`, `name`, `avataUrl`, `shortDescription`, `age`, `postIndex`.
 
 ### Security and Verification
-- Confirm that only the owner of the profile, whose address is recorded in `user_address`, can alter the `avatar_url` and `short_description`.
+- Confirm that only the owner of the profile, whose address is recorded in `userAddress`, can alter the `avatarUrl` and `shortDescription`.
 - Verify the source of calls to profile update functions, ensuring they originate from the user's specified address.
 
 ## Development Recommendations

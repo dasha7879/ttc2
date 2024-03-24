@@ -12,21 +12,26 @@ The aim of this stage is to enhance the previously created user profile contract
 ### Post Contract Structure
 The storage for each post contract should include:
 
-- `master_address`: The address of the master contract, inherited from the user contract.
-- `user_address`: The address of the user, to link the post back to the user profile.
-- `post_index`: The index of the post, provided by the user contract during deployment.
+- `initialized`: A boolean value to confirm the post contract's initialization.
+- `masterAddress`: The address of the master contract, inherited from the user contract.
+- `authorAddress`: The address of the user, to link the post back to the user profile.
+- `postIndex`: The index of the post, provided by the user contract during deployment.
 - `title`: The title of the post.
 - `text`: The body text of the post.
-- `likes_count = 0`: Initializes the count of likes for the post.
-- `user_contract_code`: The code of the user contract, for validation purposes in later stages.
+- `likesCount = 0`: Initializes the count of likes for the post.
 - `comment_index = 0`: Initializes the count of comments for the post.
 - `likes_paid = 0`: For tracking likes that have been compensated (to be used in Stage 4).
 - `comments_paid = 0`: For tracking comments that have been compensated (to be used in Stage 4).
 
+### Deployment
+
+- The post contract address should depend on the `masterAddress`, `authorAddress`, and `postIndex`.
+- The other fields should be set through the first incoming message during deployment. In the constructor they should be set to initial zero values (an empty string for strings, 0 for numbers and false for booleans).
+
 ### Post Contract Functionality
 
 #### Data Retrieval
-- Implement a getter `getPostData` in the post contract to return all the above-mentioned fields, facilitating data access.
+- Implement a getter `postData` in the post contract to return all the above-mentioned fields, facilitating data access.
 
 ## Security and Verification
 - Ensure that the functionality to deploy post contracts is secured and can only be executed by the owner of the user profile.

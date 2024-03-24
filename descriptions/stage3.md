@@ -9,24 +9,27 @@ This stage introduces social interactions to the decentralized social network. P
 - Users must be able to like posts and comment on them through their user contracts. These actions involve the user contract interacting with post contracts to increment likes and to deploy comment contracts.
 
 ### Liking Posts
-- Implement a mechanism within the user contract that allows users to like a post. This involves sending a message from the user contract to the post contract to increase the `likes_count` by one.
+- Implement a mechanism within the user contract that allows users to like a post. This involves sending a message from the user contract to the post contract to increase the `likesCount` by one.
 
 ### Commenting on Posts
-- Similarly, to comment on a post, a user sends a message from their user contract. The post contract then deploys a new comment contract, passing along the `comment_index` and incrementing it thereafter.
+- Similarly, to comment on a post, a user sends a message from their user contract. The post contract then deploys a new comment contract, passing along the necessary fields and incrementing `commentIndex`.
 
 ### Post Contract
-- Ensure the post contract has the capability to verify that the like or comment action is coming from a valid user contract. This may involve validating the `user_address` and potentially using the `user_contract_code`.
+- Ensure the post contract has the capability to verify that the like or comment action is coming from a valid user contract. This may involve validating the `userAddress`.
 
 ### Comment Contract Structure
 The storage for each comment contract should include:
 
-- `user_address`: The address of the commenting user.
-- `post_index`: The index of the post being commented on.
-- `comment_index`: The index of the comment within the post.
+- `initialized`: A boolean value to confirm the comment contract's initialization.
+- `masterAddress`: The address of the master contract, inherited from the post contract.
+- `commenterAddress`: The address of the commenting user.
+- `postAuthorAddress`: The address of the author of the post being commented on.
+- `postIndex`: The index of the post being commented on.
+- `commentIndex`: The index of the comment within the post.
 - `text`: The text of the comment.
 
 ### Functionality for Interaction Verification
-- Implement a method to calculate and verify the sender's address against the expected user contract address. This ensures that likes and comments are genuinely coming from users within the network.
+- Implement a method to calculate and verify the sender's address against the expected user contract address. This ensures that likes and comments are genuinely coming from users within the social network (from user contracts).
 
 ### Data Retrieval
 - Implement getters in the post and comment contracts (`getPostData` and `getCommentData`, respectively) to facilitate the retrieval of information related to posts and comments.
