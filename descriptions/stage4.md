@@ -13,6 +13,7 @@ The fourth stage of the Tact Smart Challenge is aimed at stimulating user activi
     - `commentsPaid`: Tracks the number of comments that have been compensated.
 
 - Implement a function to calculate the eligible rewards for likes and comments that haven't been compensated yet and communicate this information to the master contract.
+- If there are no new likes or comments to reward, the post contract should throw an error.
 
 ### Security and Verification
 - Ensure that only legitimate requests from post contracts can trigger the reward distribution process in the master contract.
@@ -37,6 +38,8 @@ Storage:
 - `priceForLike`: The current reward price for likes.
 - `priceForComment`: The current reward price for comments.
 - `votingData`: The structure that stores the voting data.
+
+The fields that are not passed in the constructor should be set to initial zero values (an empty string for strings, 0 for numbers, and false for booleans).
 
 ### Functionality
 

@@ -80,6 +80,7 @@ contract User {
     }
 
     receive(msg: CreatePost) {
+
     }
 
     receive(msg: LikePost) {
