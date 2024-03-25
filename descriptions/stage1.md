@@ -23,6 +23,7 @@ The following fields must be initialized in the contract's storage upon deployme
 - At the time of contract deployment, `initialized`, `name`, `avatarUrl`, `shortDescription`, and `age` should be set through the first incoming message. In the constructor they should be set to initial zero values (an empty string for strings, 0 for numbers and false for booleans).
 - Only the `masterAddress` and `userAddress` should be set through the constructor, so the calculation of user contract address will depend on these two fields.
 - The `postIndex` is to be set to zero, serving the purpose of tracking the index of the latest post by the user.
+- The `initUser` message will be used to deploy the user contract.
 
 #### Profile Updates
 - Users should have the capability to update their `avatarUrl` and `shortDescription` via specific functions in the contract.

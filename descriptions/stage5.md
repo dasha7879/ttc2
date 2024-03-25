@@ -10,7 +10,7 @@ The final stage of the Tact Smart Challenge introduces a mechanism for decentral
 - The voting system should allow only admin to initiate a vote on a proposal (only 24 hours after the end of the previous vote), which then opens a 24-hour voting window.
 
 ### Voting Process
-- **Initiating a Vote:** Any user can submit a proposal for a change. Upon submission, 24-hour countdown begins.
+- **Initiating a Vote:** Only admin can submit a proposal for a change. Upon submission, 24-hour countdown begins.
 - **Casting Votes:** Users vote "For" or "Against" a proposal. The power of each user's vote is equal to each other.
 - **End of Voting:** After the voting period ends, any user can initiate end of voting process.
 - **Counting Votes:** After the voting period ends, the votes are tallied. If the number of "For" votes surpasses the "Against" votes, the proposal is considered approved.

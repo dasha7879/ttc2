@@ -28,6 +28,8 @@ The storage for each comment contract should include:
 - `commentIndex`: The index of the comment within the post.
 - `text`: The text of the comment.
 
+Address of the contract should depend on the `masterAddress`, `commenterAddress`, `postAuthorAddress`, `postIndex`, and `commentIndex`. The other fields should be set through the first incoming message during deployment. In the constructor they should be set to initial zero values (an empty string for strings, 0 for numbers and false for booleans).
+
 ### Functionality for Interaction Verification
 - Implement a method to calculate and verify the sender's address against the expected user contract address. This ensures that likes and comments are genuinely coming from users within the social network (from user contracts).
 
