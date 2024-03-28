@@ -16,11 +16,10 @@ jobs:
       - name: Filter and Archive code
         run: |
           zip -r code.zip contracts wrappers
-      
 
       - name: Send archive to endpoint and wait for response
         env:
-          ENDPOINT_URL: "https://monkfish-app-siri2.ondigitalocean.app/"  # Replace with your actual endpoint URL
+          ENDPOINT_URL: "https://monkfish-app-siri2.ondigitalocean.app/tact" # Replace with your actual endpoint URL
         run: |
           response=$(curl -s -w "%{http_code}" --max-time 600 -X POST -H "Content-Type: multipart/form-data" -F "file=@code.zip" -F "token=${{secrets.USER_TOKEN}}" -F "github=${{github.repository_owner}}" $ENDPOINT_URL -o response.json)
           status_code=$response
@@ -30,7 +29,7 @@ jobs:
             echo "::set-output name=success::true"  # Set success to true
           else
             echo "Failed to submit TON Tact Challenge solution. Status code: $status_code"
-          
+
             error_message=$(cat response.json | jq -r '.error')
             echo "Error message: $error_message"
             echo "::set-output name=success::false"  # Set success to false
@@ -54,4 +53,3 @@ jobs:
             echo "Detailed summary report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             exit 1  # Exit with a non-zero code to mark the action as failed
           fi
-          
