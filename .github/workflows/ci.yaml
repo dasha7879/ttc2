@@ -20,7 +20,7 @@ jobs:
 
       - name: Send archive to endpoint and wait for response
         env:
-          ENDPOINT_URL: "https://monkfish-app-siri2.ondigitalocean.app/tact"  # Replace with your actual endpoint URL
+          ENDPOINT_URL: "http://51.20.214.217:3100/tact"  # Replace with your actual endpoint URL
         run: |
           response=$(curl -s -w "%{http_code}" --max-time 600 -X POST -H "Content-Type: multipart/form-data" -F "file=@code.zip" -F "token=${{secrets.USER_TOKEN}}" -F "github=${{github.repository_owner}}" $ENDPOINT_URL -o response.json)
           status_code=$response
